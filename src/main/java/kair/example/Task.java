@@ -1,5 +1,6 @@
 package kair.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("main-task")
@@ -13,6 +14,11 @@ public class Task {
         this.duration = 60L;
         this.taskManager = taskManager;
     }
+
+//    @Autowired
+//    public void setTaskManager(TaskManager taskManager) {
+//        this.taskManager = taskManager;
+//    }
 
     @Override
     public String toString() {

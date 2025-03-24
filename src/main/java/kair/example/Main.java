@@ -7,10 +7,10 @@ public class Main {
         // Scanning Beans from package kair.example
         // Create the application context
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("kair.example");
-        Task task = (Task) context.getBean("not-main-task");
         Task task2 = (Task) context.getBean("main-task");
+//        Task task = (Task) context.getBean("not-main-task");
 
-        System.out.println(task);
+//        System.out.println(task);
         System.out.println(task2);
 //
 //        if (task.equals(task2))
