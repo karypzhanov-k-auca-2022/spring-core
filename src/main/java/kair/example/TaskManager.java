@@ -19,4 +19,8 @@ public class TaskManager {
             System.out.println("Current Task: " + task.toString());
         }
     }
+
+    public Task getTask() {
+        return task;
+    }
 }

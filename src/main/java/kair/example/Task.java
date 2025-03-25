@@ -1,18 +1,21 @@
 package kair.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component("main-task")
+import java.util.concurrent.ThreadLocalRandom;
+
+@Component("main-task") // This will create a singleton instance of Task
+@Scope("prototype")
 public class Task {
     private final String name;
     private final Long duration;
-    private TaskManager taskManager;
 
-    public Task(TaskManager taskManager) {
-        this.name = "Task";
+
+    public Task() {
+        this.name = "Task" + ThreadLocalRandom.current().nextInt();
         this.duration = 60L;
-        this.taskManager = taskManager;
     }
 
 //    @Autowired
