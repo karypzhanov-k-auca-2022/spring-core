@@ -20,7 +20,7 @@ public class TaskProperties {
     @Value("#{'${set.values}'.split(',')}")
     private List<String> setValues;
 
-    @Value("#{'${map.values}'.split(',')}")
+    @Value("#{${map.values}}")
     private Map<String, Integer> mapValues;
 
     @Override

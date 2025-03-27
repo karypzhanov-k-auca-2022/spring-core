@@ -7,8 +7,12 @@ public class Main {
         // Scanning Beans from package kair.example
         // Create the application context
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("kair.example");
-        var properties = context.getBean(ConfigurationProperties.class);
-        properties.toString();
+        Task task1 = context.getBean(Task.class);
+        Task task2 = context.getBean(Task.class);
+
+        var properties = context.getBean(TaskProperties.class);
+        System.out.println(properties);
+
 
         System.out.println("-------------------------------------------------");
     }

@@ -13,9 +13,9 @@ import java.util.concurrent.ThreadLocalRandom;
 //@Scope("prototype")
 public class Task {
     @Value("${task.name}")
-    private final String name;
+    private String name;
     @Value("${task.duration}")
-    private final Long duration;
+    private Long duration;
 
 
     public Task() {
