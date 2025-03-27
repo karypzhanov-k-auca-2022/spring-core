@@ -11,13 +11,20 @@ public class Main {
 //        Task task2 = context.getBean(Task.class);
 //
 //        System.out.println(task1 == task2);
+
+        System.out.println("-------------------------------------------------");
+        // Get the TaskManager bean
+        TaskManager taskManager1 = context.getBean(TaskManager.class);
+        taskManager1.printTask();
+
+        // Get the TaskExecutor bean
 //
-//        TaskManager taskManager2 = context.getBean(TaskManager.class);
-//        taskManager2.printTask();
+        TaskManager taskManager2 = context.getBean(TaskManager.class);
+        taskManager2.printTask();
 
-        TaskExecutor taskExecutor = context.getBean(TaskExecutor.class);
-        taskExecutor.executeTask();
-
+//        TaskExecutor taskExecutor = context.getBean(TaskExecutor.class);
+//        taskExecutor.executeTask();
+        context.close();
 
         System.out.println("-------------------------------------------------");
     }

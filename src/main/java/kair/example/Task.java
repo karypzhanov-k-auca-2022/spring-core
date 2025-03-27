@@ -1,5 +1,7 @@
 package kair.example;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -7,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Component("main-task") // This will create a singleton instance of Task
-@Scope("prototype")
+//@Scope("prototype")
 public class Task {
     private final String name;
     private final Long duration;
@@ -16,12 +18,18 @@ public class Task {
     public Task() {
         this.name = "Task" + ThreadLocalRandom.current().nextInt();
         this.duration = 60L;
+        System.out.println("call task constructor");
     }
 
-//    @Autowired
-//    public void setTaskManager(TaskManager taskManager) {
-//        this.taskManager = taskManager;
-//    }
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("Task postConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("Task preDestroy");
+    }
 
     @Override
     public String toString() {
