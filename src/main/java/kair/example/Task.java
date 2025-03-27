@@ -3,6 +3,7 @@ package kair.example;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +12,9 @@ import java.util.concurrent.ThreadLocalRandom;
 @Component("main-task") // This will create a singleton instance of Task
 //@Scope("prototype")
 public class Task {
+    @Value("${task.name}")
     private final String name;
+    @Value("${task.duration}")
     private final Long duration;
 
 
